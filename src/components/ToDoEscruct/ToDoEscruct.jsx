@@ -3,6 +3,7 @@ import { Todo } from "../Todo/Todo";
 import { TodoForm } from "../TodoForm/TodoForm";
 import { v4 as uuidv4 } from "uuid";
 import { EditTodoForm } from "../editTodoForm/editTodoForm";
+import Swal from "sweetalert2";
 
 export const ToDoEscruct = () => {
   const [todos, setTodos] = useState([]);
@@ -49,6 +50,15 @@ export const ToDoEscruct = () => {
         todo.id === id ? { ...todo, task, isEditing: !todo.isEditing } : todo
       )
     );
+    {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Tarea editada con exito!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
   };
 
   return (

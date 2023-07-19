@@ -8,8 +8,18 @@
 }
 
 body {
-  background-image: url("https://www.todofondos.net/wp-content/uploads/1920x1080-Fondo-de-pantalla-de-flores-blancas.jpg");
-  background-size: cover;
+  background: #00c9ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #92fe9d,
+    #00c9ff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #92fe9d,
+    #00c9ff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,7 +62,18 @@ h1 {
 }
 
 .todo-btn {
-  background: #8758ff;
+  background: #00c9ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #92fe9d,
+    #00c9ff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #92fe9d,
+    #00c9ff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   color: #000000;
   border: none;
   padding: 0.55rem;
@@ -63,17 +84,23 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #8758ff;
+  background: #00c9ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #92fe9d,
+    #00c9ff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #92fe9d,
+    #00c9ff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   color: #ffffff;
   padding: 0.75rem 1rem;
   border-radius: 5px;
   margin-bottom: 1rem;
   cursor: pointer;
-}
-
-.Check {
-  border: 10px solid #c2b6e0;
-  border-radius: 5px;
 }
 
 .delete {
@@ -82,4 +109,15 @@ h1 {
 
 .Edit {
   margin-right: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .body {
+    border-radius: 0px;
+  }
+}
+@media (min-width: 1024px) {
+  .body {
+    border-radius: 10%;
+  }
 }
