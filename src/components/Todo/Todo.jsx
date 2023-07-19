@@ -5,12 +5,7 @@ import React from "react";
 export const Todo = ({ task, deleteTodo, editTodo, toggleComplete }) => {
   return (
     <div className="Todo">
-      <p
-        className={`${task.completed ? "completed" : ""}`}
-        onClick={() => toggleComplete(task.id)}
-      >
-        {task.task}
-      </p>
+      <p className={`${task.completed ? "completed" : ""}`}>{task.task}</p>
       <div>
         <button className="Edit" onClick={() => editTodo(task.id)}>
           Editar
@@ -18,7 +13,11 @@ export const Todo = ({ task, deleteTodo, editTodo, toggleComplete }) => {
         <button className="delete" onClick={() => deleteTodo(task.id)}>
           Eliminar
         </button>
-       
+        <input
+          type="checkbox"
+          className="Check"
+          onClick={() => toggleComplete(task.id)}
+        />
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Todo } from "./Todo";
-import { TodoForm } from "./TodoForm";
+import { Todo } from "../Todo/Todo";
+import { TodoForm } from "../TodoForm/TodoForm";
 import { v4 as uuidv4 } from "uuid";
-import { EditTodoForm } from "./editTodoForm";
+import { EditTodoForm } from "../editTodoForm/editTodoForm";
 
 export const ToDoEscruct = () => {
   const [todos, setTodos] = useState([]);
@@ -10,9 +10,20 @@ export const ToDoEscruct = () => {
   const addTodo = (todo) => {
     setTodos([
       ...todos,
-      { id: uuidv4(), task: todo, completed: false, isEditing: false },
+      {
+        id: uuidv4(),
+        task: todo,
+        completed: false,
+        isEditing: false,
+      },
     ]);
-  }
+  };
+
+  const count = todos.reduce(
+    (accumulator, currentTask) =>
+      currentTask.completed ? accumulator + 1 : accumulator,
+    0
+  );
 
   const deleteTodo = (id) => setTodos(todos.filter((todo) => todo.id !== id));
 
@@ -22,7 +33,7 @@ export const ToDoEscruct = () => {
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
-  }
+  };
 
   const editTodo = (id) => {
     setTodos(
@@ -30,7 +41,7 @@ export const ToDoEscruct = () => {
         todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo
       )
     );
-  }
+  };
 
   const editTask = (task, id) => {
     setTodos(
@@ -43,6 +54,7 @@ export const ToDoEscruct = () => {
   return (
     <div className="TodoWrapper">
       <h1>Lista de tareas !</h1>
+      <p>Tareas completadas {count}</p>
       <TodoForm addTodo={addTodo} />
       {todos.map((todo) =>
         todo.isEditing ? (
